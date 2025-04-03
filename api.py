@@ -10,7 +10,7 @@ def one_post():
     response = requests.get(f'https://jsonplaceholder.typicode.com/posts/{post_id}')
     assert response.json()['id'] == post_id # сравнивает вернулся ли юзер с тем id который запрашивался
     print(response.text)
-one_post(2)
+
 def post_a_post():
     body = {
         "title": "Test Title",
@@ -37,7 +37,7 @@ def new_post():
     return response.json()['id']
 
 def clear(post_id):
-    response = requests.delete(f'https://jsonplaceholder.typicode.com/posts/{post_id}')
+    requests.delete(f'https://jsonplaceholder.typicode.com/posts/{post_id}')
 
 def put_a_post():
     post_id = new_post()
